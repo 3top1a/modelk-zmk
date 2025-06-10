@@ -1,0 +1,52 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+
+/ {
+    model = "modelk";
+    compatible = "modelk";
+
+    chosen {
+        zmk,kscan = &kscan0;
+        zmk,matrix_transform = &default_transform;
+    };
+
+    default_transform: keymap_transform_0 {
+        compatible = "zmk,matrix-transform";
+        columns = <16>; // 2 shift registers * 8 bits each = 16 columns
+        rows = <8>;     // 8 rows
+        // Define your key mapping here - this is just a placeholder
+        // map = <RC(0,0) RC(0,1) ... and so on>;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
+        row-gpios
+            = <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 0
+            , <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 1
+            , <&gpio0 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 2
+            , <&gpio0 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 3
+            , <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 4
+            , <&gpio0 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 5
+            , <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 6
+            , <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>  // Row 7
+            ;
+
+        col-gpios 
+            = <&gpio0 10 GPIO_ACTIVE_HIGH>  // Shift register data pin
+            , <&gpio0 11 GPIO_ACTIVE_HIGH>  // Shift register clock pin
+            , <&gpio0 12 GPIO_ACTIVE_HIGH>  // Shift register latch pin
+            ;
+    };
+};
+
+// Configure the shift registers for column scanning
+&kscan0 {
+    shift-reg {
+        compatible = "zmk,kscan-gpio-shift-register";
+        gpios = <&gpio0 10 GPIO_ACTIVE_HIGH>,  // data
+               <&gpio0 11 GPIO_ACTIVE_HIGH>,  // clock
+               <&gpio0 12 GPIO_ACTIVE_HIGH>;  // latch
+        bits = <16>; // 16 total columns (2 shift registers * 8 bits)
+    };
+};
+

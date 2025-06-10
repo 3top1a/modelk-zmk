@@ -1,0 +1,19 @@
+if BOARD_MODELK
+
+config ZMK_KEYBOARD_NAME
+    default "ModelK"
+
+config ZMK_SLEEP
+    default n
+
+config ZMK_BLE_PASSKEY_ENTRY
+    default y
+
+config EC11
+    default y
+
+config EC11_TRIGGER_GLOBAL_THREAD
+    default y
+
+endif
+
