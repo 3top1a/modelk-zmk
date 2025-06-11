@@ -4,4 +4,7 @@ if SHIELD_MODELK
 config ZMK_KEYBOARD_NAME
     default "modelk"
 
+config SPI
+    default y
+
 endif
