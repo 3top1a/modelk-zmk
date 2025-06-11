@@ -13,8 +13,8 @@
 
         // TODO Finish map
         map = <
-            // Row 0 (top physical row)
-            RC(7,2)     RC(5,3) RC(5,4) RC(6,4) RC(7,4) RC(7,6) RC(7,8) RC(6,9) RC(5,10) RC(5,6) RC(4,6) RC(4,8) RC(4,12)    RC(4,15) RC(3,15) RC(4,15)
+            // Row 0                     NR      NR                                                                                                  DUAL
+            RC(0,5)     RC(2,4) RC(2,3) RC(6,4) RC(7,4)  RC(0,1) RC(0,15) RC(1,14) RC(5,14)  RC(5,1) RC(3, 1) RC(3, 12) RC(3, 11)    RC(3,8) RC(4,8) RC(2, 9)
         >;
     };
 
@@ -22,6 +22,10 @@
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
+        diode-direction = "col2row";
+
+        debounce-press-ms = <5>;
+        debounce-release-ms = <5>;
 
         // 8 rows
         // Yes these pins are all over the place but they are correct
@@ -68,7 +72,7 @@
         compatible = "zmk,gpio-595";
         status = "okay";
         reg = <0>;
-        spi-max-frequency = <200000>;
+        spi-max-frequency = <10000>;
         gpio-controller;
         #gpio-cells = <2>;
         ngpios = <16>; // Daisy chained so 16

@@ -18,6 +18,7 @@
         name = "firmware";
 
         src = nixpkgs.lib.sourceFilesBySuffices self [ ".board" ".cmake" ".conf" ".defconfig" ".dts" ".dtsi" ".json" ".keymap" ".overlay" ".shield" ".yml" "_defconfig" ];
+        snippets = ["zmk-usb-logging"];
 
         board = "nice_nano_v2";
         shield = "modelk";
