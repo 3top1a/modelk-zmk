@@ -24,8 +24,6 @@
         label = "KSCAN";
         diode-direction = "col2row";
 
-        debounce-press-ms = <5>;
-        debounce-release-ms = <5>;
 
         // 8 rows
         // Yes these pins are all over the place but they are correct
@@ -72,7 +70,7 @@
         compatible = "zmk,gpio-595";
         status = "okay";
         reg = <0>;
-        spi-max-frequency = <10000>;
+        spi-max-frequency = <200000>;
         gpio-controller;
         #gpio-cells = <2>;
         ngpios = <16>; // Daisy chained so 16
