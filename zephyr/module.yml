@@ -1,4 +1,4 @@
+name: zmk-keyboard-modelk
 build:
   settings:
     board_root: .
-name: zmk-keyboard-modelk
