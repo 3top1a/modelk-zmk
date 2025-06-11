@@ -8,20 +8,41 @@
 
         default_layer {
             bindings = <
-                // Row 0
-                &kp ESC    &kp N1     &kp N2     &kp N3     &kp N4     &kp N5     &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &kp MINUS  &kp EQUAL  &kp BSPC
-                // Row 1
-                &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T      &kp Y      &kp U      &kp I      &kp O      &kp P      &kp LBKT   &kp RBKT   &kp BSLH
-                // Row 2
-                &kp CLCK   &kp A      &kp S      &kp D      &kp F      &kp G      &kp H      &kp J      &kp K      &kp L      &kp SEMI   &kp APOS   &kp ENTER
-                // Row 3
-                &kp LSHFT  &kp Z      &kp X      &kp C      &kp V      &kp B      &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp RSHFT
-                // Row 4
-                &kp LCTRL  &kp LGUI   &kp LALT                          &kp SPACE                        &kp RALT   &kp RGUI   &kp RCTRL
+// Function row
+&kp ESC    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12   &kp PSCRN &kp SLCK  &kp PAUSE_BREAK
+
+// Number row
+&kp GRAVE  &kp N1    &kp N2    &kp N3    &kp N4    &kp N5    &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp MINUS &kp EQUAL &kp BSPC              &kp INS   &kp HOME  &kp PG_UP
+
+// QWERTY row
+&kp TAB    &kp Q     &kp W     &kp E     &kp R     &kp T     &kp Y     &kp U     &kp I     &kp O     &kp P     &kp LBKT  &kp RBKT  &kp BSLH  &kp BSPC  &kp DEL   &kp END   &kp PG_DN
+
+// ASDF row
+&kp CAPS   &kp A     &kp S     &kp D     &kp F     &kp G     &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp SQT             &kp RET
+
+// ZXCV row
+&kp LSHFT  &kp Z     &kp X     &kp C     &kp V     &kp B     &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH                      &kp RSHFT                       &kp UP
+
+// Bottom row
+&kp LCTRL            &kp LALT  &kp SPACE                             &kp SPACE                             &kp RALT  &kp RCTRL &mo 1     &kp LEFT  &kp DOWN  &kp RIGHT &kp RET
             >;
-            
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        function_layer {
+            bindings = <
+// BT controls on function layer
+&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans        &trans &trans &trans
+
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans
+
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans       &trans
+
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans                     &trans              &trans
+
+&trans       &trans &trans                       &trans                       &trans &trans &trans &trans &trans &trans &trans
+            >;
         };
     };
 };
-
