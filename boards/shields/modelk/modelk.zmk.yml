@@ -1,0 +1,7 @@
+file_format: "1"
+id: modelk
+name: Model K
+type: shield
+requires: [nice_nano_v2]
+features:
+  - keys
