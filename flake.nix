@@ -14,7 +14,7 @@
     packages = forAllSystems (system: rec {
       default = firmware;
 
-      firmware = zmk-nix.legacyPackages.${system}.buildSplitKeyboard {
+      firmware = zmk-nix.legacyPackages.${system}.buildKeyboard {
         name = "firmware";
 
         src = nixpkgs.lib.sourceFilesBySuffices self [ ".board" ".cmake" ".conf" ".defconfig" ".dts" ".dtsi" ".json" ".keymap" ".overlay" ".shield" ".yml" "_defconfig" ];
