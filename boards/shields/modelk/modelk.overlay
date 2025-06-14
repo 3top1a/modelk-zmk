@@ -106,7 +106,7 @@
             gpios = <&gpio1 0 GPIO_ACTIVE_HIGH>;
             label = "Bluetooth LED";
         };
-     };
+    };
 };
 
 &spi1 {
