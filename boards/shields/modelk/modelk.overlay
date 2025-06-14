@@ -11,7 +11,6 @@
         columns = <16>;
         rows = <8>;
 
-        // TODO Finish map
         map = <
             // Standard rows
             RC(7,2)   RC(5,3) RC(5,4) RC(6,4) RC(7,4) RC(7,6) RC(7,8) RC(6,9) RC(5,9) RC(5,6) RC(4,6) RC(4,11) RC(4,12)
@@ -43,6 +42,14 @@
         >;
     };
 
+    behaviors {
+        leader1: leader1 {
+            compatible = "zmk,behavior-leader-key";
+            #binding-cells = <0>;
+            // See https://github.com/urob/zmk-leader-key
+            //usb { sequence = <LS(LALT)>; bindings = <&kb LGUI>; };
+        };
+    };
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
