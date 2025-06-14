@@ -79,6 +79,19 @@
             <&shifter 9  GPIO_ACTIVE_HIGH>,   // Col 9
             <&shifter 8  GPIO_ACTIVE_HIGH>;   // Col 8
     };
+
+    leds {
+        compatible = "gpio-leds";
+        led_0 {
+                gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
+        };
+        led_1 {
+                gpios = <&gpio0 11 GPIO_ACTIVE_HIGH>;
+        };
+        led_2 {
+                gpios = <&gpio1 0 GPIO_ACTIVE_HIGH>;
+        };
+     };
 };
 
 &spi1 {
