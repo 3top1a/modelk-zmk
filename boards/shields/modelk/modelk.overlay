@@ -34,9 +34,13 @@
 
 
             // Numpad
-            // fuck that for now
+            RC(1,11) RC(1,12) RC(1,13) RC(0,13)
+            RC(3,11) RC(3,12) RC(3,13) RC(3,14)
+            RC(6,11) RC(6,12) RC(6,13)
+            RC(2,11) RC(2,12) RC(2,13) RC(2,14)
+            RC(7,13)          RC(7,11) // I fucked up when rebuilding mine
+            // It's meant to be 7,12; 7,13
         >;
-
     };
 
 
@@ -59,8 +63,9 @@
             <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;  // Row 0
 
         // 16 columns via shift registers
-        // Because of the way the shifter are laid out the
-        // column definition looks like this
+        // Because of the way the shifter are laid out the column definition looks like this
+        // It also means that they are consistent with  the matrix as laid out by phosphorglow
+        // https://deskthority.net/viewtopic.php?p=451764#p451764
         col-gpios =
             <&shifter 7  GPIO_ACTIVE_HIGH>,   // Col 0
             <&shifter 6  GPIO_ACTIVE_HIGH>,   // Col 1
@@ -82,14 +87,17 @@
 
     leds {
         compatible = "gpio-leds";
-        led_0 {
-                gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
+        numlock_led {
+            gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
+            label = "Numlock LED";
         };
-        led_1 {
-                gpios = <&gpio0 11 GPIO_ACTIVE_HIGH>;
+        capslock_led {
+            gpios = <&gpio0 11 GPIO_ACTIVE_HIGH>;
+            label = "Capslock LED";
         };
-        led_2 {
-                gpios = <&gpio1 0 GPIO_ACTIVE_HIGH>;
+        bluetooth_led {
+            gpios = <&gpio1 0 GPIO_ACTIVE_HIGH>;
+            label = "Bluetooth LED";
         };
      };
 };
