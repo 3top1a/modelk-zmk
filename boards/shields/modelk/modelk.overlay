@@ -74,7 +74,7 @@
         // It also means that they are consistent with  the matrix as laid out by phosphorglow
         // https://deskthority.net/viewtopic.php?p=451764#p451764
         col-gpios =
-            <&shifter 7  GPIO_ACTIVE_HIGH>,   // Col 0
+	    <&gpio1 6 GPIO_ACTIVE_HIGH>,
             <&shifter 6  GPIO_ACTIVE_HIGH>,   // Col 1
             <&shifter 5  GPIO_ACTIVE_HIGH>,   // Col 5
             <&shifter 4  GPIO_ACTIVE_HIGH>,   // Col 4

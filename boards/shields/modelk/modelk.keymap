@@ -51,7 +51,7 @@
 
         ralt {
             bindings = <
-                &out OUT_TOG &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2   ____     ____     &kp C_PREV     &kp C_PP     &kp C_NEXT    ____    ____    ____    ____
+                &out OUT_TOG &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_CLR ____     &kp C_PREV     &kp C_PP     &kp C_NEXT    ____    ____    ____    ____
                 ____     ____     ____     ____     ____     ____     ____     ____     ____     ____     ____    ____    ____    ____
                 ____     ____     ____     ____     ____     ____     ____     ____     ____     ____     ____    ____    ____    ____
                 ____     ____     ____     ____     ____     ____     ____     ____     ____     ____     ____    ____    ____
