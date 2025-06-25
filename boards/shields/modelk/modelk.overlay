@@ -60,14 +60,14 @@
         // 8 rows
         // Yes these pins are all over the place but they are correct
         row-gpios =
-            <&gpio0 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 7 (P0.21)
-            <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 6 (P0.20)
-            <&gpio0 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 5 (P0.19)
-            <&gpio0 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 4 (P0.18)
-            <&gpio0 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 3 (P0.15)
-            <&gpio0 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 2 (P0.14)
-            <&gpio0 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 1 (P0.16)
-            <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;  // Row 0 (P0.10)
+            <&gpio0 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 23 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 26 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 27 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 28 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,
+            <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
 
         // 16 columns via shift registers
         // Because of the way the shifter are laid out the column definition looks like this
