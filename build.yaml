@@ -19,10 +19,10 @@
 #
 ---
 include:
-  - board: nice_nano_v2
+  - board: sparkfun_pro_micro_rp2040
     shield: modelk
     artifact-name: modelk_nice!nano
-  - board: nice_nano_v2
+  - board: sparkfun_pro_micro_rp2040
     shield: modelk
     snippet: zmk-usb-logging
     artifact-name: modelk_nice!nano_debug

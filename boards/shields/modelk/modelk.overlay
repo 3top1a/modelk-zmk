@@ -60,21 +60,21 @@
         // 8 rows
         // Yes these pins are all over the place but they are correct
         row-gpios =
-            <&gpio0 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 7
-            <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 6
-            <&gpio1 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 5
-            <&gpio1 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 4
-            <&gpio1 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 3
-            <&gpio0 2  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 2
-            <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 1
-            <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;  // Row 0
+            <&gpio0 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 7 (P0.21)
+            <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 6 (P0.20)
+            <&gpio0 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 5 (P0.19)
+            <&gpio0 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 4 (P0.18)
+            <&gpio0 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 3 (P0.15)
+            <&gpio0 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 2 (P0.14)
+            <&gpio0 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>,  // Row 1 (P0.16)
+            <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;  // Row 0 (P0.10)
 
         // 16 columns via shift registers
         // Because of the way the shifter are laid out the column definition looks like this
         // It also means that they are consistent with  the matrix as laid out by phosphorglow
         // https://deskthority.net/viewtopic.php?p=451764#p451764
         col-gpios =
-	    <&gpio1 6 GPIO_ACTIVE_HIGH>,
+            <&gpio0 9 GPIO_ACTIVE_HIGH>,
             <&shifter 6  GPIO_ACTIVE_HIGH>,   // Col 1
             <&shifter 5  GPIO_ACTIVE_HIGH>,   // Col 5
             <&shifter 4  GPIO_ACTIVE_HIGH>,   // Col 4
@@ -91,41 +91,6 @@
             <&shifter 9  GPIO_ACTIVE_HIGH>,   // Col 9
             <&shifter 8  GPIO_ACTIVE_HIGH>;   // Col 8
     };
-
-    leds {
-        compatible = "gpio-leds";
-        numlock_led {
-            gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
-            label = "Numlock LED";
-        };
-        capslock_led {
-            gpios = <&gpio0 11 GPIO_ACTIVE_HIGH>;
-            label = "Capslock LED";
-        };
-        bluetooth_led {
-            gpios = <&gpio1 0 GPIO_ACTIVE_HIGH>;
-            label = "Bluetooth LED";
-        };
-    };
-};
-
-&spi1 {
-    compatible = "nordic,nrf-spim";
-    status = "okay";
-    cs-gpios = <&gpio0 17 GPIO_ACTIVE_LOW>;
-    pinctrl-0 = <&spi0_default>;
-    pinctrl-1 = <&spi0_sleep>;
-    pinctrl-names = "default", "sleep";
-
-    shifter: 595@0 {
-        compatible = "zmk,gpio-595";
-        status = "okay";
-        reg = <0>;
-        spi-max-frequency = <600000>;
-        gpio-controller;
-        #gpio-cells = <2>;
-        ngpios = <16>; // Daisy chained so 16
-    };
 };
 
 // From https://zmk.dev/docs/development/hardware-integration/pinctrl#pinctrl-node
@@ -134,19 +99,44 @@
     spi0_default: spi0_default {
         /* node name is arbitrary */
         group1 {
-            /* main role: configure P0.01 as SPI clock, P0.02 as SPI MOSI, P0.03 as SPI MISO */
-            psels = <NRF_PSEL(SPIM_SCK, 0, 20)>,
-                    <NRF_PSEL(SPIM_MOSI, 0, 22)>;
+            pinmux = <PIO0_P3>, <PIO0_P4>;
         };
     };
 
-    /* configuration for spi0 device, sleep state */
     spi0_sleep: spi0_sleep {
         group1 {
-            /* main role: configure P0.01 as SPI clock, P0.02 as SPI MOSI, P0.03 as SPI MISO */
-            psels = <NRF_PSEL(SPIM_SCK, 0, 20)>,
-                    <NRF_PSEL(SPIM_MOSI, 0, 22)>;
-            low-power-enable;
+            pinmux = <PIO0_P3>, <PIO0_P4>;
+        };
+    };
+};
+
+// From https://zmk.dev/docs/development/hardware-integration/pinctrl?controller-type=rp2040#rp2040-pio
+&pio0 {
+    /* enables this PIO block */
+    status = "okay";
+    pio0_spi: pio0_spi {
+        pinctrl-0 = <&spi0_default>;
+        pinctrl-names = "default";
+        compatible = "raspberrypi,pico-spi-pio";
+        #address-cells = <1>;
+        #size-cells = <0>;
+        clocks = <&system_clk>;
+        clock-frequency = <4000000>;
+        /* These pins should be the same as in pinctrl */
+        clk-gpios = <&gpio0 4 0>;
+        mosi-gpios = <&gpio0 3 0>;
+        miso-gpios = <&gpio0 0 GPIO_ACTIVE_HIGH>; // miso not used but doesn't compile otherwise
+
+        cs-gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>;
+
+        shifter: 595@0 {
+            compatible = "zmk,gpio-595";
+            status = "okay";
+            reg = <0>;
+            spi-max-frequency = <600000>;
+            gpio-controller;
+            #gpio-cells = <2>;
+            ngpios = <16>; // Daisy chained so 16
         };
     };
 };

@@ -20,7 +20,7 @@
         src = nixpkgs.lib.sourceFilesBySuffices self [ ".board" ".cmake" ".conf" ".defconfig" ".dts" ".dtsi" ".json" ".keymap" ".overlay" ".shield" ".yml" "_defconfig" ];
         #snippets = ["zmk-usb-logging"];
 
-        board = "nice_nano_v2";
+        board = "sparkfun_pro_micro_rp2040";
         shield = "modelk";
 
         zephyrDepsHash = "sha256-3Q5UFVVA4BukIhAId9b/nm9kNvRBxBDg6Ajpg6pEeAY=";
