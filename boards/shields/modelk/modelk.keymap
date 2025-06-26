@@ -58,7 +58,7 @@
                 ____     ____     ____     ____     ____     ____     ____     ____     ____     ____     ____    ____    ____
                 ____              ____              ____              ____              ____
 
-                &studio_unlock ____ &bootloader
+                &studio_unlock &studio_unlock &bootloader
 
                 ____ ____ ____
                 ____ ____ ____

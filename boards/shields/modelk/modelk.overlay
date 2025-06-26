@@ -1,9 +1,154 @@
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <physical_layouts.dtsi>
 
 / {
+    modelm_layout: modelm_layout {
+        compatible = "zmk,physical-layout";
+        display-name = "Model M 101";
+        transform = <&default_transform>;
+        kscan = <&kscan0>;
+        keys  //                     w   h    x    y     rot    rx    ry
+            // Function key row
+            = <&key_physical_attrs 100 100    0    0       0     0     0> // ESC
+            , <&key_physical_attrs 100 100  150    0       0     0     0> // F1
+            , <&key_physical_attrs 100 100  250    0       0     0     0> // F2
+            , <&key_physical_attrs 100 100  350    0       0     0     0> // F3
+            , <&key_physical_attrs 100 100  450    0       0     0     0> // F4
+            , <&key_physical_attrs 100 100  600    0       0     0     0> // F5
+            , <&key_physical_attrs 100 100  700    0       0     0     0> // F6
+            , <&key_physical_attrs 100 100  800    0       0     0     0> // F7
+            , <&key_physical_attrs 100 100  900    0       0     0     0> // F8
+            , <&key_physical_attrs 100 100 1050    0       0     0     0> // F9
+            , <&key_physical_attrs 100 100 1150    0       0     0     0> // F10
+            , <&key_physical_attrs 100 100 1250    0       0     0     0> // F11
+            , <&key_physical_attrs 100 100 1350    0       0     0     0> // F12
+
+            // Number row
+            , <&key_physical_attrs 100 100    0  150       0     0     0> // `
+            , <&key_physical_attrs 100 100  100  150       0     0     0> // 1
+            , <&key_physical_attrs 100 100  200  150       0     0     0> // 2
+            , <&key_physical_attrs 100 100  300  150       0     0     0> // 3
+            , <&key_physical_attrs 100 100  400  150       0     0     0> // 4
+            , <&key_physical_attrs 100 100  500  150       0     0     0> // 5
+            , <&key_physical_attrs 100 100  600  150       0     0     0> // 6
+            , <&key_physical_attrs 100 100  700  150       0     0     0> // 7
+            , <&key_physical_attrs 100 100  800  150       0     0     0> // 8
+            , <&key_physical_attrs 100 100  900  150       0     0     0> // 9
+            , <&key_physical_attrs 100 100 1000  150       0     0     0> // 0
+            , <&key_physical_attrs 100 100 1100  150       0     0     0> // -
+            , <&key_physical_attrs 100 100 1200  150       0     0     0> // =
+            , <&key_physical_attrs 200 100 1300  150       0     0     0> // Backspace
+
+            // Top alpha row
+            , <&key_physical_attrs 150 100    0  250       0     0     0> // Tab
+            , <&key_physical_attrs 100 100  150  250       0     0     0> // Q
+            , <&key_physical_attrs 100 100  250  250       0     0     0> // W
+            , <&key_physical_attrs 100 100  350  250       0     0     0> // E
+            , <&key_physical_attrs 100 100  450  250       0     0     0> // R
+            , <&key_physical_attrs 100 100  550  250       0     0     0> // T
+            , <&key_physical_attrs 100 100  650  250       0     0     0> // Y
+            , <&key_physical_attrs 100 100  750  250       0     0     0> // U
+            , <&key_physical_attrs 100 100  850  250       0     0     0> // I
+            , <&key_physical_attrs 100 100  950  250       0     0     0> // O
+            , <&key_physical_attrs 100 100 1050  250       0     0     0> // P
+            , <&key_physical_attrs 100 100 1150  250       0     0     0> // [
+            , <&key_physical_attrs 100 100 1250  250       0     0     0> // ]
+            , <&key_physical_attrs 150 100 1350  250       0     0     0> // Enter (part 1)
+
+            // Home row
+            , <&key_physical_attrs 175 100    0  350       0     0     0> // Caps Lock
+            , <&key_physical_attrs 100 100  175  350       0     0     0> // A
+            , <&key_physical_attrs 100 100  275  350       0     0     0> // S
+            , <&key_physical_attrs 100 100  375  350       0     0     0> // D
+            , <&key_physical_attrs 100 100  475  350       0     0     0> // F
+            , <&key_physical_attrs 100 100  575  350       0     0     0> // G
+            , <&key_physical_attrs 100 100  675  350       0     0     0> // H
+            , <&key_physical_attrs 100 100  775  350       0     0     0> // J
+            , <&key_physical_attrs 100 100  875  350       0     0     0> // K
+            , <&key_physical_attrs 100 100  975  350       0     0     0> // L
+            , <&key_physical_attrs 100 100 1075  350       0     0     0> // ;
+            , <&key_physical_attrs 100 100 1175  350       0     0     0> // '
+            , <&key_physical_attrs 125 100 1275  350       0     0     0> // \
+
+            // Bottom row
+            , <&key_physical_attrs 125 100    0  450       0     0     0> // LShift
+            , <&key_physical_attrs 100 100  125  450       0     0     0> // GUI
+            , <&key_physical_attrs 100 100  225  450       0     0     0> // Z
+            , <&key_physical_attrs 100 100  325  450       0     0     0> // X
+            , <&key_physical_attrs 100 100  425  450       0     0     0> // C
+            , <&key_physical_attrs 100 100  525  450       0     0     0> // V
+            , <&key_physical_attrs 100 100  625  450       0     0     0> // B
+            , <&key_physical_attrs 100 100  725  450       0     0     0> // N
+            , <&key_physical_attrs 100 100  825  450       0     0     0> // M
+            , <&key_physical_attrs 100 100  925  450       0     0     0> // ,
+            , <&key_physical_attrs 100 100 1025  450       0     0     0> // .
+            , <&key_physical_attrs 100 100 1125  450       0     0     0> // /
+            , <&key_physical_attrs 275 100 1225  450       0     0     0> // RShift
+
+            // Bottom row modifiers
+            , <&key_physical_attrs 125 100    0  550       0     0     0> // LCtrl
+            , <&key_physical_attrs 125 100  250  550       0     0     0> // LAlt
+            , <&key_physical_attrs 625 100  375  550       0     0     0> // Space
+            , <&key_physical_attrs 125 100 1000  550       0     0     0> // RAlt/Fn
+            , <&key_physical_attrs 125 100 1250  550       0     0     0> // RCtrl
+
+            // Middle column
+            , <&key_physical_attrs 100 100 1650    0       0     0     0> // Print Screen
+            , <&key_physical_attrs 100 100 1750    0       0     0     0> // Scroll Lock
+            , <&key_physical_attrs 100 100 1850    0       0     0     0> // Pause Break
+
+            // Navigation cluster
+            , <&key_physical_attrs 100 100 1650  150       0     0     0> // Insert
+            , <&key_physical_attrs 100 100 1750  150       0     0     0> // Home
+            , <&key_physical_attrs 100 100 1850  150       0     0     0> // Page Up
+            , <&key_physical_attrs 100 100 1650  250       0     0     0> // Delete
+            , <&key_physical_attrs 100 100 1750  250       0     0     0> // End
+            , <&key_physical_attrs 100 100 1850  250       0     0     0> // Page Down
+
+            // Arrow keys
+            , <&key_physical_attrs 100 100 1750  450       0     0     0> // Up Arrow
+            , <&key_physical_attrs 100 100 1650  550       0     0     0> // Left Arrow
+            , <&key_physical_attrs 100 100 1750  550       0     0     0> // Down Arrow
+            , <&key_physical_attrs 100 100 1850  550       0     0     0> // Right Arrow
+
+            // Numpad
+            , <&key_physical_attrs 100 100 2000  150       0     0     0> // Num Lock
+            , <&key_physical_attrs 100 100 2100  150       0     0     0> // KP /
+            , <&key_physical_attrs 100 100 2200  150       0     0     0> // KP *
+            , <&key_physical_attrs 100 100 2300  150       0     0     0> // KP -
+            , <&key_physical_attrs 100 100 2000  250       0     0     0> // KP 7
+            , <&key_physical_attrs 100 100 2100  250       0     0     0> // KP 8
+            , <&key_physical_attrs 100 100 2200  250       0     0     0> // KP 9
+            , <&key_physical_attrs 100 200 2300  250       0     0     0> // KP +
+            , <&key_physical_attrs 100 100 2000  350       0     0     0> // KP 4
+            , <&key_physical_attrs 100 100 2100  350       0     0     0> // KP 5
+            , <&key_physical_attrs 100 100 2200  350       0     0     0> // KP 6
+            , <&key_physical_attrs 100 100 2000  450       0     0     0> // KP 1
+            , <&key_physical_attrs 100 100 2100  450       0     0     0> // KP 2
+            , <&key_physical_attrs 100 100 2200  450       0     0     0> // KP 3
+            , <&key_physical_attrs 100 200 2300  450       0     0     0> // KP Enter
+            , <&key_physical_attrs 200 100 2000  550       0     0     0> // KP 0
+            , <&key_physical_attrs 100 100 2200  550       0     0     0> // KP .
+            ;
+    };
+
+    position_map {
+        compatible = "zmk,physical-layout-position-map";
+
+        modelm_layout {
+            physical-layout = <&modelm_layout>;
+            positions = <>;
+        };
+    };
+// };
+
+
+
+
+// / {
     chosen {
         zmk,kscan = &kscan0;
-        zmk,matrix_transform = &default_transform;
+        zmk,physical-layout = &modelm_layout;
     };
 
     default_transform: keymap_transform_0 {
@@ -48,6 +193,11 @@
             #binding-cells = <0>;
             // See https://github.com/urob/zmk-leader-key
             //usb { sequence = <LS(LALT)>; bindings = <&kb LGUI>; };
+        };
+
+        unlock: unlock {
+            compatible = "zmk,behavior-studio-unlock";
+            #binding-cells = <0>;
         };
     };
 
