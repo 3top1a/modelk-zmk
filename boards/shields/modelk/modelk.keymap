@@ -58,7 +58,7 @@
                 ____     ____     ____     ____     ____     ____     ____     ____     ____     ____     ____    ____    ____
                 ____              ____              ____              ____              ____
 
-                ____ ____ &bootloader
+                &studio_unlock ____ &bootloader
 
                 ____ ____ ____
                 ____ ____ ____
@@ -74,6 +74,16 @@
             >;
         };
 
+	// Reserved for ZMK Studio
+        extra1 {
+            status = "reserved";
+        };
+
+        extra2 {
+            status = "reserved";
+        };
+
+	// Here as a template
         empty {
             bindings = <
                 ____     ____     ____     ____     ____     ____     ____     ____     ____     ____     ____    ____    ____
