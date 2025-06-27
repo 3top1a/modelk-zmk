@@ -9,11 +9,9 @@
 
 / {
     behaviors {
-        bslh_gui: backslash_gui {
-            compatible = "zmk,behavior-mod-morph";
+        studio_unlock: studio_unlock {
+            compatible = "zmk,behavior-studio-unlock";
             #binding-cells = <0>;
-            bindings = <&kp BSLH>, <&kp LGUI>;
-            mods = <(MOD_LCTL)>;
         };
     };
 
@@ -58,7 +56,7 @@
                 ____     ____     ____     ____     ____     ____     ____     ____     ____     ____     ____    ____    ____
                 ____              ____              ____              ____              ____
 
-                &studio_unlock &studio_unlock &bootloader
+                &studio_unlock ____ &bootloader
 
                 ____ ____ ____
                 ____ ____ ____
@@ -85,6 +83,7 @@
 
 	// Here as a template
         empty {
+            status = "reserved";
             bindings = <
                 ____     ____     ____     ____     ____     ____     ____     ____     ____     ____     ____    ____    ____
                 ____     ____     ____     ____     ____     ____     ____     ____     ____     ____     ____    ____    ____    ____
