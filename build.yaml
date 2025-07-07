@@ -27,6 +27,6 @@ include:
 
   - board: nice_nano_v2
     shield: modelk
-    snippet: zmk-usb-logging, studio-rpc-usb-uart
+    snippet: zmk-usb-logging studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: modelk_nice!nano_debug
