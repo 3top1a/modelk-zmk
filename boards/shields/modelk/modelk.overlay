@@ -206,12 +206,6 @@
     };
 
     behaviors {
-        leader1: leader1 {
-            compatible = "zmk,behavior-leader-key";
-            #binding-cells = <0>;
-            // See https://github.com/urob/zmk-leader-key
-            //usb { sequence = <LS(LALT)>; bindings = <&kb LGUI>; };
-        };
     };
 
     kscan0: kscan {
