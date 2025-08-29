@@ -94,16 +94,16 @@
 
     leds {
         compatible = "gpio-leds";
-        numlock_led {
+        numlock_led: numlock_led {
             gpios = <&gpio1 4 GPIO_ACTIVE_LOW>;
             label = "Numlock LED";
         };
-        capslock_led {
-            gpios = <&gpio0 11 GPIO_ACTIVE_HIGH>;
+        capslock_led: capslock_led {
+            gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
             label = "Capslock LED";
         };
-        bluetooth_led {
-            gpios = <&gpio1 0 GPIO_ACTIVE_HIGH>;
+        bluetooth_led: bluetooth_led {
+            gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
             label = "Bluetooth LED";
         };
     };
