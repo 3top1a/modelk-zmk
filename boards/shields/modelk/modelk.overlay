@@ -1,4 +1,5 @@
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <dt-bindings/zmk/ext_power.h>
 
 / {
     chosen {
@@ -53,9 +54,8 @@
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN";
         diode-direction = "col2row";
-
+        wakeup-source;
 
         // 8 rows
         // Yes these pins are all over the place but they are correct
@@ -95,7 +95,7 @@
     leds {
         compatible = "gpio-leds";
         numlock_led {
-            gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
+            gpios = <&gpio1 4 GPIO_ACTIVE_LOW>;
             label = "Numlock LED";
         };
         capslock_led {
@@ -121,7 +121,7 @@
         compatible = "zmk,gpio-595";
         status = "okay";
         reg = <0>;
-        spi-max-frequency = <600000>;
+        spi-max-frequency = <400000>;
         gpio-controller;
         #gpio-cells = <2>;
         ngpios = <16>; // Daisy chained so 16
