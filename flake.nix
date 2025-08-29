@@ -21,6 +21,7 @@
 
         board = "nice_nano_v2";
         shield = "modelk";
+        snippets = [ "zmk-usb-logging" ];
 
         zephyrDepsHash = "sha256-DOz+hpthxe7jyzZouYpe/aFy9RQgTFnIp+HUMmz3v50=";
 
