@@ -5,3 +5,5 @@ Some feedback on the docs (might make PRs):
 - Device tree/kconfig all vars page
 - folders are files also????
 - Status LEDs?
+
+Shoutout [Model X's](https://github.com/NilsFC/Model-X) firmware

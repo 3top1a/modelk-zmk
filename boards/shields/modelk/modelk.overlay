@@ -1,5 +1,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <physical_layouts.dtsi>
+#include <dt-bindings/zmk/ext_power.h>
 
 / {
     modelm_layout: modelm_layout {
@@ -210,9 +211,8 @@
 
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN";
         diode-direction = "col2row";
-
+        wakeup-source;
 
         // 8 rows
         // Yes these pins are all over the place but they are correct
@@ -251,16 +251,16 @@
 
     leds {
         compatible = "gpio-leds";
-        numlock_led {
-            gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
+        numlock_led: numlock_led {
+            gpios = <&gpio1 4 GPIO_ACTIVE_LOW>;
             label = "Numlock LED";
         };
-        capslock_led {
-            gpios = <&gpio0 11 GPIO_ACTIVE_HIGH>;
+        capslock_led: capslock_led {
+            gpios = <&gpio0 11 GPIO_ACTIVE_LOW>;
             label = "Capslock LED";
         };
-        bluetooth_led {
-            gpios = <&gpio1 0 GPIO_ACTIVE_HIGH>;
+        bluetooth_led: bluetooth_led {
+            gpios = <&gpio1 0 GPIO_ACTIVE_LOW>;
             label = "Bluetooth LED";
         };
     };
@@ -278,7 +278,7 @@
         compatible = "zmk,gpio-595";
         status = "okay";
         reg = <0>;
-        spi-max-frequency = <600000>;
+        spi-max-frequency = <400000>;
         gpio-controller;
         #gpio-cells = <2>;
         ngpios = <16>; // Daisy chained so 16

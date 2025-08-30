@@ -17,14 +17,15 @@
       firmware = zmk-nix.legacyPackages.${system}.buildKeyboard {
         name = "firmware";
 
-        src = nixpkgs.lib.sourceFilesBySuffices self [ ".board" ".cmake" ".conf" ".defconfig" ".dts" ".dtsi" ".json" ".keymap" ".overlay" ".shield" ".yml" "_defconfig" ];
+        src = nixpkgs.lib.sourceFilesBySuffices self [ ".board" ".cmake" ".conf" ".defconfig" ".dts" ".dtsi" ".json" ".keymap" ".overlay" ".shield" ".yml" ".txt" ".c" ];
        	snippets = ["studio-rpc-usb-uart"];
        	enableZmkStudio = true;
 
         board = "nice_nano_v2";
         shield = "modelk";
+        snippets = [ "zmk-usb-logging" ];
 
-        zephyrDepsHash = "sha256-3Q5UFVVA4BukIhAId9b/nm9kNvRBxBDg6Ajpg6pEeAY=";
+        zephyrDepsHash = "sha256-DOz+hpthxe7jyzZouYpe/aFy9RQgTFnIp+HUMmz3v50=";
 
         meta = {
           description = "ZMK firmware";
