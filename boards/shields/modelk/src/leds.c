@@ -116,6 +116,9 @@ static void update_bluetooth_status(void) {
             ble_is_selected ? "YES" : "NO",
             ble_is_connected ? "YES" : "NO",
             bluetooth_pairing ? "YES" : "NO");
+
+    // Also update HID because race condition that doesn't make it update
+    update_hid_indicator_flags();
 }
 
 // Timer callback for Bluetooth LED blinking
@@ -138,8 +141,8 @@ static void on_wake_up(void) {
     // printk("Keyboard has woken up from idle. Restoring Num Lock LED state.\n");
     is_idle = false;
 
-    update_bluetooth_status();
-    update_hid_indicator_flags();
+    update_bluetooth_status(); // Gets called in update_bluetooth_status
+    // update_hid_indicator_flags();
     apply_led_state();
 }
 
@@ -160,7 +163,7 @@ static int on_activity_state_changed(const zmk_event_t *ev) {
 
 static int status_changed_listener_cb(const zmk_event_t *eh) {
     update_bluetooth_status();
-    update_hid_indicator_flags();
+    // update_hid_indicator_flags(); // Gets called in update_bluetooth_status
     apply_led_state();
     return ZMK_EV_EVENT_BUBBLE;
 }
@@ -200,7 +203,7 @@ static int leds_init(void) {
     bluetooth_connected = false;
     bluetooth_pairing = false;
     update_bluetooth_status();
-    update_hid_indicator_flags();
+    // update_hid_indicator_flags(); // Gets called in update_bluetooth_status
     apply_led_state();
 
     LOG_INF("LEDs initialized successfully");
